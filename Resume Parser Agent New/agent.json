@@ -1,0 +1,107 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "resumeText"
+    ],
+    "properties": {
+      "resumeText": {
+        "type": "string"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "candidate_name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
+      },
+      "linkedin": {
+        "type": "string"
+      },
+      "github": {
+        "type": "string"
+      },
+      "portfolio_urls": {
+        "type": "array",
+        "items": {}
+      },
+      "skills": {
+        "type": "array",
+        "items": {}
+      },
+      "technical_skills": {
+        "type": "array",
+        "items": {}
+      },
+      "soft_skills": {
+        "type": "array",
+        "items": {}
+      },
+      "education": {
+        "type": "array",
+        "items": {}
+      },
+      "experience": {
+        "type": "array",
+        "items": {}
+      },
+      "projects": {
+        "type": "array",
+        "items": {}
+      },
+      "certifications": {
+        "type": "array",
+        "items": {}
+      },
+      "years_of_experience": {
+        "type": "number"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "targetRuntime": "pythonAgent",
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "projectId": "bbeef936-b9a8-44bd-ba67-4737d6d2db86",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert recruitment resume parsing agent.\r\n\r\nThe user will provide the complete resume as plain text.\r\n\r\nExtract the following information:\r\n\r\n- candidate_name\r\n- email\r\n- phone\r\n- linkedin\r\n- github\r\n- portfolio_urls\r\n- skills\r\n- technical_skills\r\n- soft_skills\r\n- education\r\n- experience\r\n- projects\r\n- certifications\r\n- years_of_experience\r\n\r\nRules:\r\n\r\n1. Return ONLY valid JSON matching the output schema.\r\n2. Never invent information.\r\n3. Missing string fields -> \"\"\r\n4. Missing array fields -> []\r\n5. Missing years_of_experience -> 0\r\n6. Do not include explanations.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are an expert recruitment resume parsing agent.\r\n\r\nThe user will provide the complete resume as plain text.\r\n\r\nExtract the following information:\r\n\r\n- candidate_name\r\n- email\r\n- phone\r\n- linkedin\r\n- github\r\n- portfolio_urls\r\n- skills\r\n- technical_skills\r\n- soft_skills\r\n- education\r\n- experience\r\n- projects\r\n- certifications\r\n- years_of_experience\r\n\r\nRules:\r\n\r\n1. Return ONLY valid JSON matching the output schema.\r\n2. Never invent information.\r\n3. Missing string fields -> \"\"\r\n4. Missing array fields -> []\r\n5. Missing years_of_experience -> 0\r\n6. Do not include explanations."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "The following input contains the complete text extracted from a candidate's resume.\r\n\r\n\nExtract the candidate's information and populate the configured output fields.\r\n\r\nInstructions:\r\n\r\n* Extract only information explicitly present in the resume.\r\n* Do not infer or invent missing information.\r\n* If a string field is missing, return an empty string (\"\").\r\n* If an array field is missing, return an empty array ([]).\r\n* If years_of_experience cannot be determined, return 0.\r\n* Normalize email addresses, phone numbers, GitHub URLs, LinkedIn URLs, and portfolio URLs where possible.\r\n* Include all technical skills, programming languages, frameworks, databases, cloud platforms, tools, certifications, projects, education, and work experience found in the resume.\r\n* Return only the extracted values through the configured output schema. Do not include explanations, markdown, or any additional text.\r\n",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "The following input contains the complete text extracted from a candidate's resume.\r\n\r\n\nExtract the candidate's information and populate the configured output fields.\r\n\r\nInstructions:\r\n\r\n* Extract only information explicitly present in the resume.\r\n* Do not infer or invent missing information.\r\n* If a string field is missing, return an empty string (\"\").\r\n* If an array field is missing, return an empty array ([]).\r\n* If years_of_experience cannot be determined, return 0.\r\n* Normalize email addresses, phone numbers, GitHub URLs, LinkedIn URLs, and portfolio URLs where possible.\r\n* Include all technical skills, programming languages, frameworks, databases, cloud platforms, tools, certifications, projects, education, and work experience found in the resume.\r\n* Return only the extracted values through the configured output schema. Do not include explanations, markdown, or any additional text.\r\n"
+        }
+      ]
+    }
+  ]
+}

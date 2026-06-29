@@ -1,0 +1,49 @@
+{
+  "fileName": "evaluation-set-default.json",
+  "id": "47fda90e-3589-492a-b771-98c6ee7c3a31",
+  "name": "Default Evaluation Set",
+  "batchSize": 10,
+  "evaluatorRefs": [
+    "b5f916d2-ae04-4a94-b7ab-20357215b12e"
+  ],
+  "evaluations": [
+    {
+      "id": "6047604c-404d-4e53-adf8-7d14770120c5",
+      "name": "Debug Run 28/06/2026, 20:29:36",
+      "inputs": {
+        "resumeText": "John Smith Software Engineer  Email: john@gmail.com  Phone: 9876543210  Skills: Python SQL Machine Learning  Experience: 2 years at ABC Ltd  Education: B.Tech Computer Science"
+      },
+      "expectedOutput": {
+        "candidate_name": "",
+        "email": "",
+        "phone": "",
+        "linkedin": "",
+        "github": "",
+        "portfolio_urls": [],
+        "skills": [],
+        "technical_skills": [],
+        "soft_skills": [],
+        "education": [],
+        "experience": [],
+        "projects": [],
+        "certifications": [],
+        "years_of_experience": 0
+      },
+      "expectedAgentBehavior": "",
+      "simulationInstructions": "",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "47fda90e-3589-492a-b771-98c6ee7c3a31",
+      "createdAt": "2026-06-28T14:59:36.459Z",
+      "updatedAt": "2026-06-28T14:59:36.459Z",
+      "source": "firstSuccessfulRun"
+    }
+  ],
+  "modelSettings": [],
+  "createdAt": "2026-06-28T14:48:13.870Z",
+  "updatedAt": "2026-06-28T14:59:36.459Z",
+  "agentMemoryEnabled": false,
+  "agentMemorySettings": [],
+  "lineByLineEvaluation": false
+}

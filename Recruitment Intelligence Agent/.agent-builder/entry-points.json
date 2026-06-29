@@ -1,0 +1,132 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "0eeb4c6c-e477-4956-a11b-0045d9ed7929",
+      "input": {
+        "type": "object",
+        "required": [
+          "jobDescription",
+          "candidate_name",
+          "jobPosition",
+          "email",
+          "phone",
+          "linkedin",
+          "github",
+          "portfolio_urls",
+          "skills",
+          "technical_skills",
+          "soft_skills",
+          "projects",
+          "experience",
+          "education",
+          "certifications",
+          "years_of_experience"
+        ],
+        "properties": {
+          "candidate_name": {
+            "type": "string"
+          },
+          "jobDescription": {
+            "type": "string"
+          },
+          "jobPosition": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "linkedin": {
+            "type": "string"
+          },
+          "github": {
+            "type": "string"
+          },
+          "portfolio_urls": {
+            "type": "array",
+            "items": {}
+          },
+          "skills": {
+            "type": "array",
+            "items": {}
+          },
+          "technical_skills": {
+            "type": "array",
+            "items": {}
+          },
+          "soft_skills": {
+            "type": "array",
+            "items": {}
+          },
+          "education": {
+            "type": "array",
+            "items": {}
+          },
+          "experience": {
+            "type": "array",
+            "items": {}
+          },
+          "projects": {
+            "type": "array",
+            "items": {}
+          },
+          "certifications": {
+            "type": "array",
+            "items": {}
+          },
+          "years_of_experience": {
+            "type": "number"
+          }
+        },
+        "title": "Inputs"
+      },
+      "output": {
+        "type": "object",
+        "required": [
+          "match_score",
+          "decision",
+          "reason",
+          "strengths"
+        ],
+        "properties": {
+          "match_score": {
+            "type": "number"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missing_skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "experience_match": {
+            "type": "string"
+          },
+          "education_match": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "5be96439-b49c-4c1b-9327-3ad8bea5cc63",
+      "input": {
+        "type": "object",
+        "required": [
+          "candidate_profile",
+          "jobPosition",
+          "jobDescription"
+        ],
+        "properties": {
+          "candidate_profile": {
+            "type": "object",
+            "properties": {}
+          },
+          "jobPosition": {
+            "type": "string"
+          },
+          "jobDescription": {
+            "type": "string"
+          }
+        },
+        "title": "Inputs"
+      },
+      "output": {
+        "type": "object",
+        "required": [
+          "match_score",
+          "decision",
+          "reason",
+          "strengths"
+        ],
+        "properties": {
+          "match_score": {
+            "type": "number"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missing_skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "experience_match": {
+            "type": "string"
+          },
+          "education_match": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Candidate Communication Agent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "3c1a7042-85a5-42de-9490-2d0940938853",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "Candidate Communication Agent",
+      "description": null
+    },
+    "locks": [],
+    "key": "e891e0a8-3fa8-4b77-b581-239743fd484d"
+  }
+}

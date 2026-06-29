@@ -1,0 +1,38 @@
+{
+  "DocVersion": "1.0.0",
+  "StudioMinVersion": "2025.04.0",
+  "SolutionId": "80301d60-9116-4c92-f285-08ded1e7c509",
+  "Projects": [
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Resume Parser Agent New/project.uiproj",
+      "Id": "2f578d93-e012-45ed-9b1f-cf124d996064"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Agent/project.uiproj",
+      "Id": "757bb8cd-895e-4fa0-9074-5d0c63864e08"
+    },
+    {
+      "Type": "Process",
+      "ProjectRelativePath": "RPA Workflow/project.uiproj",
+      "Id": "f75cc9e2-8829-42c7-b358-d439db777786"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Recruitment Intelligence Agent/project.uiproj",
+      "Id": "b7b2188f-ca5b-496e-97e3-cd5c5827eedb"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Candidate Communication Agent/project.uiproj",
+      "Id": "3c1a7042-85a5-42de-9490-2d0940938853"
+    },
+    {
+      "Type": "ProcessOrchestration",
+      "ProjectRelativePath": "Maestro BPMN/project.uiproj",
+      "Id": "fb69e4d9-decf-4ef5-9fc7-dd48c8dfc7dc"
+    }
+  ],
+  "AutomationHubIdeaUrl": null
+}

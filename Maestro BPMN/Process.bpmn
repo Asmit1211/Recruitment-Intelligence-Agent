@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="b52d90e7">
+  <bpmn:process id="Process_1" name="Process">
+    <bpmn:extensionElements>
+      <uipath:variables version="v1">
+        <uipath:input id="vPEIUiAfv" name="jobPosition" type="string" elementId="Event_start" default="" required="true" />
+        <uipath:input id="vI6iKckJf" name="jobDescription" type="string" elementId="Event_start" default="" required="true" />
+        <uipath:input id="vswvHUaon" name="resumeFile" type="file" elementId="Event_start" default="" required="true"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ID":{"type":"string","description":"Orchestrator attachment key"},"FullName":{"type":"string","description":"File name"},"MimeType":{"type":"string","description":"The MIME type of the content, such as application/json or image/png"},"Metadata":{"type":"object","description":"Dictionary<string, string> of metadata","additionalProperties":{"type":"string"}}},"required":["ID"],"x-uipath-resource-kind":"JobAttachment"}]]></uipath:input>
+        <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Activity_ipjCUS"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="resumeText" name="resumeText" type="string" elementId="Activity_ipjCUS" />
+        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_bJD7Sw"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="candidateName" name="candidate_name" type="string" elementId="Activity_bJD7Sw" />
+        <uipath:inputOutput id="email" name="email" type="string" elementId="Activity_bJD7Sw" />
+        <uipath:inputOutput id="phone" name="phone" type="string" elementId="Activity_bJD7Sw" />
+        <uipath:inputOutput id="linkedin" name="linkedin" type="string" elementId="Activity_bJD7Sw" />
+        <uipath:inputOutput id="github" name="github" type="string" elementId="Activity_bJD7Sw" />
+        <uipath:inputOutput id="portfolioUrls" name="portfolio_urls" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"Normalized non-LinkedIn, non-GitHub portfolio or personal website URLs explicitly present in the resume.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="skills" name="skills" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"All explicitly listed skills from the resume as concise strings.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="technicalSkills" name="technical_skills" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"Programming languages, frameworks, libraries, databases, cloud platforms, DevOps tools, AI/ML frameworks, version control, IDEs, APIs, and software tools explicitly present in the resume.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="softSkills" name="soft_skills" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"Communication, teamwork, leadership, problem solving, adaptability, critical thinking, collaboration, presentation, project management, and similar interpersonal skills explicitly present in the resume.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="education" name="education" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"One string per education record, including degree, institution, graduation year, and grade or CGPA when available.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="experience" name="experience" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"One string per professional work experience, including company, role, duration, and responsibilities when available.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="projects" name="projects" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"One string per project, including project name, technologies used, and short description when available.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="certifications" name="certifications" type="jsonSchema" subType="string" elementId="Activity_bJD7Sw"><![CDATA[{"type":"array","description":"All certifications explicitly present in the resume, one string per certification.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="yearsOfExperience" name="years_of_experience" type="integer" elementId="Activity_bJD7Sw" />
+        <uipath:inputOutput id="jobPosition" name="jobPosition" type="string" elementId="Event_start" required="true" />
+        <uipath:inputOutput id="jobDescription" name="jobDescription" type="string" elementId="Event_start" required="true" />
+        <uipath:inputOutput id="resumeFile" name="resumeFile" type="file" elementId="Event_start" required="true"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ID":{"type":"string","description":"Orchestrator attachment key"},"FullName":{"type":"string","description":"File name"},"MimeType":{"type":"string","description":"The MIME type of the content, such as application/json or image/png"},"Metadata":{"type":"object","description":"Dictionary<string, string> of metadata","additionalProperties":{"type":"string"}}},"required":["ID"],"x-uipath-resource-kind":"JobAttachment"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_nXGes4"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="matchScore" name="match_score" type="number" elementId="Activity_nXGes4" />
+        <uipath:inputOutput id="decision" name="decision" type="string" elementId="Activity_nXGes4" />
+        <uipath:inputOutput id="reason" name="reason" type="string" elementId="Activity_nXGes4" />
+        <uipath:inputOutput id="strengths" name="strengths" type="jsonSchema" subType="string" elementId="Activity_nXGes4"><![CDATA[{"type":"array","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="missingSkills" name="missing_skills" type="jsonSchema" subType="string" elementId="Activity_nXGes4"><![CDATA[{"type":"array","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="experienceMatch" name="experience_match" type="string" elementId="Activity_nXGes4" />
+        <uipath:inputOutput id="educationMatch" name="education_match" type="string" elementId="Activity_nXGes4" />
+        <uipath:inputOutput id="recommendation" name="recommendation" type="string" elementId="Activity_nXGes4" />
+        <uipath:inputOutput id="error4" name="Error" type="jsonSchema" elementId="Activity_U5M8EM"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="emailSubject" name="emailSubject" type="string" elementId="Activity_U5M8EM" />
+        <uipath:inputOutput id="emailBody" name="emailBody" type="string" elementId="Activity_U5M8EM" />
+      </uipath:variables>
+      <uipath:bindings version="v1">
+        <uipath:binding id="btYTBWYJy" name="folderPath" type="string" resource="process" resourceKey="RPA Workflow" propertyAttribute="folderPath" />
+        <uipath:binding id="blMv5EQDs" name="name" type="string" default="RPA Workflow" resource="process" resourceKey="RPA Workflow" propertyAttribute="name" />
+        <uipath:binding id="bmpU5P72H" name="folderPath" type="string" resource="process" resourceKey="Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bm8uAjFvJ" name="name" type="string" default="Agent" resource="process" resourceKey="Agent" propertyAttribute="name" />
+        <uipath:binding id="bswdnqcVM" name="folderPath" type="string" resource="process" resourceKey="Recruitment Intelligence Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bkyvAy0Ux" name="name" type="string" default="Recruitment Intelligence Agent" resource="process" resourceKey="Recruitment Intelligence Agent" propertyAttribute="name" />
+        <uipath:binding id="bd8rqtjAr" name="folderPath" type="string" resource="process" resourceKey="Candidate Communication Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bqtMFNINC" name="name" type="string" default="Candidate Communication Agent" resource="process" resourceKey="Candidate Communication Agent" propertyAttribute="name" />
+      </uipath:bindings>
+      <uipath:migrationVersion version="15" />
+      <uipath:intsvcActivityConfig version="v2" />
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_start" name="Start event">
+      <bpmn:extensionElements>
+        <uipath:entryPointId value="8f4d1e32-2529-40f2-9e6a-c339deefac66" />
+        <uipath:mapping version="v1">
+          <uipath:type value="BPMN.Variables" version="v1" />
+          <uipath:output name="jobPosition" type="string" source="=vars.vPEIUiAfv" var="jobPosition" />
+          <uipath:output name="jobDescription" type="string" source="=vars.vI6iKckJf" var="jobDescription" />
+          <uipath:output name="resumeFile" type="file" source="=vars.vswvHUaon" var="resumeFile" target="=orchestrator.JobAttachments" />
+        </uipath:mapping>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>edge_Event_start-Activity_ipjCUS</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_ipjCUS" name="RPA Workflow">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.blMv5EQDs" />
+            <uipath:input name="folderPath" type="string" value="=bindings.btYTBWYJy" />
+            <uipath:input name="_label" type="string" value="RPA Workflow" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"resumeFile":{"type":"file"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"resumeFile":"=vars.resumeFile"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error" />
+          <uipath:output name="resumeText" type="string" source="=resumeText" var="resumeText" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Event_start-Activity_ipjCUS</bpmn:incoming>
+      <bpmn:outgoing>edge_Activity_ipjCUS-Activity_bJD7Sw</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_bJD7Sw" name="Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bm8uAjFvJ" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bmpU5P72H" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"resumeText":{"type":"string"}},"required":["resumeText"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"resumeText":"=vars.resumeText"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error2" />
+          <uipath:output name="candidate_name" type="string" source="=candidate_name" var="candidateName" />
+          <uipath:output name="email" type="string" source="=email" var="email" />
+          <uipath:output name="phone" type="string" source="=phone" var="phone" />
+          <uipath:output name="linkedin" type="string" source="=linkedin" var="linkedin" />
+          <uipath:output name="github" type="string" source="=github" var="github" />
+          <uipath:output name="portfolio_urls" type="jsonSchema" subType="string" source="=portfolio_urls" var="portfolioUrls" />
+          <uipath:output name="skills" type="jsonSchema" subType="string" source="=skills" var="skills" />
+          <uipath:output name="technical_skills" type="jsonSchema" subType="string" source="=technical_skills" var="technicalSkills" />
+          <uipath:output name="soft_skills" type="jsonSchema" subType="string" source="=soft_skills" var="softSkills" />
+          <uipath:output name="education" type="jsonSchema" subType="string" source="=education" var="education" />
+          <uipath:output name="experience" type="jsonSchema" subType="string" source="=experience" var="experience" />
+          <uipath:output name="projects" type="jsonSchema" subType="string" source="=projects" var="projects" />
+          <uipath:output name="certifications" type="jsonSchema" subType="string" source="=certifications" var="certifications" />
+          <uipath:output name="years_of_experience" type="integer" source="=years_of_experience" var="yearsOfExperience" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Activity_ipjCUS-Activity_bJD7Sw</bpmn:incoming>
+      <bpmn:outgoing>edge_Activity_bJD7Sw-Activity_nXGes4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_nXGes4" name="Recruitment Intelligence Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bkyvAy0Ux" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bswdnqcVM" />
+            <uipath:input name="_label" type="string" value="Recruitment Intelligence Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"candidate_profile":{"type":"object"},"jobPosition":{"type":"string"},"jobDescription":{"type":"string"}},"required":["candidate_profile","jobPosition","jobDescription"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"candidate_profile":{"candidate_name":"=vars.candidateName","email":"=vars.email","phone":"=vars.phone","linkedin":"=vars.linkedin","github":"=vars.github","portfolio_urls":"=vars.portfolioUrls","skills":"=vars.skills","technical_skills":"=vars.technicalSkills","soft_skills":"=vars.softSkills","education":"=vars.education","experience":"=vars.experience","projects":"=vars.projects","certifications":"=vars.certifications","years_of_experience":"=vars.yearsOfExperience"},"jobPosition":"=vars.jobPosition","jobDescription":"=vars.jobDescription"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
+          <uipath:output name="match_score" type="number" source="=match_score" var="matchScore" />
+          <uipath:output name="decision" type="string" source="=decision" var="decision" />
+          <uipath:output name="reason" type="string" source="=reason" var="reason" />
+          <uipath:output name="strengths" type="jsonSchema" subType="string" source="=strengths" var="strengths" />
+          <uipath:output name="missing_skills" type="jsonSchema" subType="string" source="=missing_skills" var="missingSkills" />
+          <uipath:output name="experience_match" type="string" source="=experience_match" var="experienceMatch" />
+          <uipath:output name="education_match" type="string" source="=education_match" var="educationMatch" />
+          <uipath:output name="recommendation" type="string" source="=recommendation" var="recommendation" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Activity_bJD7Sw-Activity_nXGes4</bpmn:incoming>
+      <bpmn:outgoing>edge_Activity_nXGes4-Activity_U5M8EM</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_U5M8EM" name="Candidate Communication Agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bqtMFNINC" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bd8rqtjAr" />
+            <uipath:input name="_label" type="string" value="Candidate Communication Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"candidateName":{"type":"string","title":"candidateName"},"candidateEmail":{"type":"string","title":"candidateEmail"},"jobPosition":{"type":"string","title":"jobPosition"},"reason":{"type":"string","title":"reason"}},"required":["candidateName","candidateEmail","jobPosition","reason"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"candidateName":"=vars.candidateName","candidateEmail":"=vars.email","jobPosition":"=vars.jobPosition","reason":"=vars.reason"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error4" />
+          <uipath:output name="emailSubject" type="string" source="=emailSubject" var="emailSubject" />
+          <uipath:output name="emailBody" type="string" source="=emailBody" var="emailBody" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Activity_nXGes4-Activity_U5M8EM</bpmn:incoming>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="edge_Event_start-Activity_ipjCUS" sourceRef="Event_start" targetRef="Activity_ipjCUS" />
+    <bpmn:sequenceFlow id="edge_Activity_ipjCUS-Activity_bJD7Sw" sourceRef="Activity_ipjCUS" targetRef="Activity_bJD7Sw" />
+    <bpmn:sequenceFlow id="edge_Activity_bJD7Sw-Activity_nXGes4" sourceRef="Activity_bJD7Sw" targetRef="Activity_nXGes4" />
+    <bpmn:sequenceFlow id="edge_Activity_nXGes4-Activity_U5M8EM" sourceRef="Activity_nXGes4" targetRef="Activity_U5M8EM" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="S_Event_start" bpmnElement="Event_start">
+        <dc:Bounds x="260" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="260" y="241" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_ipjCUS" bpmnElement="Activity_ipjCUS">
+        <dc:Bounds x="344" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="344" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_bJD7Sw" bpmnElement="Activity_bJD7Sw">
+        <dc:Bounds x="496" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="496" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_nXGes4" bpmnElement="Activity_nXGes4">
+        <dc:Bounds x="644" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="644" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_U5M8EM" bpmnElement="Activity_U5M8EM">
+        <dc:Bounds x="792" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="792" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Event_start-Activity_ipjCUS" bpmnElement="edge_Event_start-Activity_ipjCUS">
+        <di:waypoint x="296" y="218" />
+        <di:waypoint x="344" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_ipjCUS-Activity_bJD7Sw" bpmnElement="edge_Activity_ipjCUS-Activity_bJD7Sw">
+        <di:waypoint x="444" y="218" />
+        <di:waypoint x="496" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_bJD7Sw-Activity_nXGes4" bpmnElement="edge_Activity_bJD7Sw-Activity_nXGes4">
+        <di:waypoint x="596" y="218" />
+        <di:waypoint x="644" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_nXGes4-Activity_U5M8EM" bpmnElement="edge_Activity_nXGes4-Activity_U5M8EM">
+        <di:waypoint x="744" y="218" />
+        <di:waypoint x="792" y="218" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

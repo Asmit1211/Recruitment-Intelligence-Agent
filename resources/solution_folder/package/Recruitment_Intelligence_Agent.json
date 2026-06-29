@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Recruitment Intelligence Agent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "b7b2188f-ca5b-496e-97e3-cd5c5827eedb",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "Recruitment Intelligence Agent",
+      "description": null
+    },
+    "locks": [],
+    "key": "8d15e35a-1dbc-46f3-94bb-aff0cac281f3"
+  }
+}

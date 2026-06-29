@@ -1,0 +1,78 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "588b0d6c-1168-44d4-8ff9-7d4888edcff2",
+      "input": {
+        "type": "object",
+        "properties": {
+          "resumeText": {
+            "type": "string"
+          }
+        },
+        "title": "Inputs",
+        "required": [
+          "resumeText"
+        ]
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "candidate_name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "linkedin": {
+            "type": "string"
+          },
+          "github": {
+            "type": "string"
+          },
+          "portfolio_urls": {
+            "type": "array",
+            "items": {}
+          },
+          "skills": {
+            "type": "array",
+            "items": {}
+          },
+          "technical_skills": {
+            "type": "array",
+            "items": {}
+          },
+          "soft_skills": {
+            "type": "array",
+            "items": {}
+          },
+          "education": {
+            "type": "array",
+            "items": {}
+          },
+          "experience": {
+            "type": "array",
+            "items": {}
+          },
+          "projects": {
+            "type": "array",
+            "items": {}
+          },
+          "certifications": {
+            "type": "array",
+            "items": {}
+          },
+          "years_of_experience": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  ]
+}

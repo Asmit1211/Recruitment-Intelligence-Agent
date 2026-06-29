@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "candidateName": {
+        "type": "string"
+      },
+      "candidateEmail": {
+        "type": "string"
+      },
+      "jobPosition": {
+        "type": "string"
+      },
+      "reason": {
+        "type": "string"
+      }
+    },
+    "title": "Inputs",
+    "required": [
+      "reason",
+      "jobPosition",
+      "candidateEmail",
+      "candidateName"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "emailSubject": {
+        "type": "string"
+      },
+      "emailBody": {
+        "type": "string"
+      }
+    },
+    "title": "Outputs",
+    "required": [
+      "emailSubject",
+      "emailBody"
+    ]
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "targetRuntime": "pythonAgent",
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "projectId": "22b4cada-6c6d-45d6-908c-a068e4b7e1ea",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an HR communication assistant.\r\n\r\nYour task is to generate professional recruitment emails.\r\n\r\nRules:\r\n\r\nIf decision is \"Accepted\":\r\n- Generate an interview invitation email.\r\n- Congratulate the candidate.\r\n- Mention the job position.\r\n- Mention that further interview details will be shared.\r\n\r\nIf decision is \"Rejected\":\r\n- Generate a polite rejection email.\r\n- Thank the candidate for applying.\r\n- Mention that other candidates were a better fit.\r\n- Never provide negative or offensive feedback.\r\n\r\nThe email must be professional and concise.\r\n\r\nReturn ONLY valid JSON.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are an HR communication assistant.\r\n\r\nYour task is to generate professional recruitment emails.\r\n\r\nRules:\r\n\r\nIf decision is \"Accepted\":\r\n- Generate an interview invitation email.\r\n- Congratulate the candidate.\r\n- Mention the job position.\r\n- Mention that further interview details will be shared.\r\n\r\nIf decision is \"Rejected\":\r\n- Generate a polite rejection email.\r\n- Thank the candidate for applying.\r\n- Mention that other candidates were a better fit.\r\n- Never provide negative or offensive feedback.\r\n\r\nThe email must be professional and concise.\r\n\r\nReturn ONLY valid JSON."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Generate an email using:\r\n\r\nCandidate Name\n\r{{input.candidateName}}\n\nCandidate Email\n\r{{input.candidateEmail}}\n\nJob Position\n\r{{input.jobPosition}}\n\nReason\r\n\r{{input.reason}}\n\nReturn:\r\n\r\n{\r\n  \"emailSubject\": \"\",\r\n  \"emailBody\": \"\"\r\n}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Generate an email using:\r\n\r\nCandidate Name\n\r"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.candidateName"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nCandidate Email\n\r"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.candidateEmail"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nJob Position\n\r"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.jobPosition"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nReason\r\n\r"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.reason"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nReturn:\r\n\r\n{\r\n  \"emailSubject\": \"\",\r\n  \"emailBody\": \"\"\r\n}"
+        }
+      ]
+    }
+  ]
+}

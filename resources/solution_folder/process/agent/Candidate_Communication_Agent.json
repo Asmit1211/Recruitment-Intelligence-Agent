@@ -1,0 +1,60 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Candidate Communication Agent",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "3c1a7042-85a5-42de-9490-2d0940938853",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "Candidate Communication Agent",
+        "kind": "package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "targetRuntime": null,
+      "referencedAssets": null,
+      "entryPointUniqueId": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": null,
+      "outputArgumentsSchemaV2": null,
+      "type": "Agent",
+      "name": "Candidate Communication Agent",
+      "description": null,
+      "package": {
+        "key": "e891e0a8-3fa8-4b77-b581-239743fd484d"
+      },
+      "packageName": "Solution.agent.Candidate.Communication.Agent",
+      "packageVersion": null,
+      "entryPointName": null,
+      "inputArguments": null,
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "agentMemory": false,
+      "environmentVariables": null,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": null,
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "60f3f896-aa49-46d4-82c0-8ec89947f5bf"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/Process.bpmn#Event_start",
+      "uniqueId": "8f4d1e32-2529-40f2-9e6a-c339deefac66",
+      "type": "ProcessOrchestration",
+      "input": {
+        "type": "object",
+        "properties": {
+          "jobPosition": {
+            "type": "string",
+            "title": "jobPosition"
+          },
+          "jobDescription": {
+            "type": "string",
+            "title": "jobDescription"
+          },
+          "resumeFile": {
+            "$ref": "#/definitions/job-attachment"
+          }
+        },
+        "required": [
+          "jobPosition",
+          "jobDescription",
+          "resumeFile"
+        ],
+        "definitions": {
+          "job-attachment": {
+            "type": "object",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "Orchestrator attachment key"
+              },
+              "FullName": {
+                "type": "string",
+                "description": "File name"
+              },
+              "MimeType": {
+                "type": "string",
+                "description": "The MIME type of the content, such as \"application/json\" or \"image/png"
+              },
+              "Metadata": {
+                "type": "object",
+                "description": "Dictionary<string, string> of metadata",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "ID"
+            ],
+            "x-uipath-resource-kind": "JobAttachment"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "properties": {}
+      },
+      "displayName": "Start event"
+    }
+  ]
+}

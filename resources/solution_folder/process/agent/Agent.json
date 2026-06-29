@@ -1,0 +1,60 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Agent",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "757bb8cd-895e-4fa0-9074-5d0c63864e08",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "Agent",
+        "kind": "package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "targetRuntime": null,
+      "referencedAssets": null,
+      "entryPointUniqueId": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": null,
+      "outputArgumentsSchemaV2": null,
+      "type": "Agent",
+      "name": "Agent",
+      "description": null,
+      "package": {
+        "key": "7f9ccff4-fe72-48c6-bf24-7205d3d27b0a"
+      },
+      "packageName": "Solution.agent.Agent",
+      "packageVersion": null,
+      "entryPointName": null,
+      "inputArguments": null,
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "agentMemory": false,
+      "environmentVariables": null,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": null,
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "d7104b1d-fddb-4c12-a3f1-2f44f261695b"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0.2,
+    "engine": "basic-v2",
+    "maxIterations": 30,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "candidate_profile",
+      "jobPosition",
+      "jobDescription"
+    ],
+    "properties": {
+      "candidate_profile": {
+        "type": "object",
+        "properties": {}
+      },
+      "jobPosition": {
+        "type": "string"
+      },
+      "jobDescription": {
+        "type": "string"
+      }
+    },
+    "title": "Inputs"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "match_score",
+      "decision",
+      "reason",
+      "strengths"
+    ],
+    "properties": {
+      "match_score": {
+        "type": "number"
+      },
+      "decision": {
+        "type": "string"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "strengths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "missing_skills": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "experience_match": {
+        "type": "string"
+      },
+      "education_match": {
+        "type": "string"
+      },
+      "recommendation": {
+        "type": "string"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "targetRuntime": "pythonAgent",
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "projectId": "d8604ddc-6cc4-4bfd-8a1c-9cbca8979880",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an expert AI Recruitment Intelligence Agent.\r\n\r\nYour task is to evaluate a candidate against a job description using ONLY the structured input fields provided to this agent.\r\n\r\nEvaluation Criteria\r\n\r\n1. Overall skill match\r\n2. Technical skill match\r\n3. Soft skill relevance\r\n4. Relevant projects\r\n5. Experience\r\n6. Education\r\n7. Certifications\r\n8. Overall suitability\r\n\r\nScoring\r\n\r\n90-100 = Excellent Match\r\n75-89 = Good Match\r\n60-74 = Average Match\r\nBelow 60 = Poor Match\r\n\r\nDecision\r\n\r\nMatch Score >= 75\r\n→ Accepted\r\n\r\nMatch Score < 75\r\n→ Rejected\r\n\r\nRules\r\n\r\n• Never invent information.\r\n• Never assume missing information.\r\n• If professional experience is zero, evaluate projects, education, certifications and technical skills.\r\n• Compare the provided skills directly against the job description.\r\n• Base every conclusion only on the provided inputs.\r\n• Return ONLY the configured output schema.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are an expert AI Recruitment Intelligence Agent.\r\n\r\nYour task is to evaluate a candidate against a job description using ONLY the structured input fields provided to this agent.\r\n\r\nEvaluation Criteria\r\n\r\n1. Overall skill match\r\n2. Technical skill match\r\n3. Soft skill relevance\r\n4. Relevant projects\r\n5. Experience\r\n6. Education\r\n7. Certifications\r\n8. Overall suitability\r\n\r\nScoring\r\n\r\n90-100 = Excellent Match\r\n75-89 = Good Match\r\n60-74 = Average Match\r\nBelow 60 = Poor Match\r\n\r\nDecision\r\n\r\nMatch Score >= 75\r\n→ Accepted\r\n\r\nMatch Score < 75\r\n→ Rejected\r\n\r\nRules\r\n\r\n• Never invent information.\r\n• Never assume missing information.\r\n• If professional experience is zero, evaluate projects, education, certifications and technical skills.\r\n• Compare the provided skills directly against the job description.\r\n• Base every conclusion only on the provided inputs.\r\n• Return ONLY the configured output schema."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Analyze the following candidate against the job requirements.\r\n\r\n\n Job Position\n{{input.jobPosition}}\n\r\n\r\n\r\n\r\n\nJob Description\n{{input.jobDescription}}\r\n\r\n\r\n\r\n\nCandidate Profile\r\n\r\n{{input.candidate_profile}}\n\n\r\n\r\nEvaluate the candidate based on:\r\n\r\n* Overall skill matchS\r\n* Technical skill match\r\n* Soft skill relevance\r\n* Relevant projects\r\n* Experience\r\n* Education\r\n* Certifications\r\n* Overall suitability\r\n\r\nScoring:\r\n\r\n* 90–100 = Excellent Match\r\n* 75–89 = Good Match\r\n* 60–74 = Average Match\r\n* Below 60 = Poor Match\r\n\r\nDecision Rules:\r\n\r\n* Score ≥ 75 → Accepted\r\n* Score < 75 → Rejected\r\n\r\nInstructions:\r\n\r\n* Use ONLY the information provided in `candidate_profile`, `jobPosition`, and `jobDescription`.\r\n* Do not invent or assume missing information.\r\n* Compare the candidate's skills, projects, education, certifications, and experience with the job description.\r\n* Identify the candidate's strengths.\r\n* Identify important missing skills.\r\n* Briefly explain the decision.\r\n* Return **ONLY** the configured output fields.\r\n* Do not return Markdown.\r\n* Do not return code fences.\r\n* Do not include any text outside the configured output schema.\r\n",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Analyze the following candidate against the job requirements.\r\n\r\n\n Job Position\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.jobPosition"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\r\n\r\n\r\n\r\n\nJob Description\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.jobDescription"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\r\n\r\n\r\n\r\n\nCandidate Profile\r\n\r\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.candidate_profile"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\n\r\n\r\nEvaluate the candidate based on:\r\n\r\n* Overall skill matchS\r\n* Technical skill match\r\n* Soft skill relevance\r\n* Relevant projects\r\n* Experience\r\n* Education\r\n* Certifications\r\n* Overall suitability\r\n\r\nScoring:\r\n\r\n* 90–100 = Excellent Match\r\n* 75–89 = Good Match\r\n* 60–74 = Average Match\r\n* Below 60 = Poor Match\r\n\r\nDecision Rules:\r\n\r\n* Score ≥ 75 → Accepted\r\n* Score < 75 → Rejected\r\n\r\nInstructions:\r\n\r\n* Use ONLY the information provided in `candidate_profile`, `jobPosition`, and `jobDescription`.\r\n* Do not invent or assume missing information.\r\n* Compare the candidate's skills, projects, education, certifications, and experience with the job description.\r\n* Identify the candidate's strengths.\r\n* Identify important missing skills.\r\n* Briefly explain the decision.\r\n* Return **ONLY** the configured output fields.\r\n* Do not return Markdown.\r\n* Do not return code fences.\r\n* Do not include any text outside the configured output schema.\r\n"
+        }
+      ]
+    }
+  ]
+}

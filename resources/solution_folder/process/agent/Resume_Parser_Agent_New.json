@@ -1,0 +1,60 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Resume Parser Agent New",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "2f578d93-e012-45ed-9b1f-cf124d996064",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "Resume Parser Agent New",
+        "kind": "package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "targetRuntime": null,
+      "referencedAssets": null,
+      "entryPointUniqueId": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": null,
+      "outputArgumentsSchemaV2": null,
+      "type": "Agent",
+      "name": "Resume Parser Agent New",
+      "description": null,
+      "package": {
+        "key": "e8ef1209-0c89-4310-bf60-e9857bb348ad"
+      },
+      "packageName": "Solution.agent.Resume.Parser.Agent.New",
+      "packageVersion": null,
+      "entryPointName": null,
+      "inputArguments": null,
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "agentMemory": false,
+      "environmentVariables": null,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": null,
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "9866a0bf-19b2-4324-87e7-674d3b658805"
+  }
+}

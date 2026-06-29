@@ -1,0 +1,162 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "resumeText"
+    ],
+    "properties": {
+      "resumeText": {
+        "type": "string",
+        "description": "Complete resume text extracted from a PDF or DOCX document."
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "candidate_name",
+      "email",
+      "phone",
+      "linkedin",
+      "github",
+      "portfolio_urls",
+      "skills",
+      "technical_skills",
+      "soft_skills",
+      "education",
+      "experience",
+      "projects",
+      "certifications",
+      "years_of_experience"
+    ],
+    "properties": {
+      "candidate_name": {
+        "type": "string",
+        "description": "Candidate name explicitly present in the resume."
+      },
+      "email": {
+        "type": "string",
+        "description": "Normalized email address explicitly present in the resume, or an empty string."
+      },
+      "phone": {
+        "type": "string",
+        "description": "Normalized phone number explicitly present in the resume, or an empty string."
+      },
+      "linkedin": {
+        "type": "string",
+        "description": "Normalized LinkedIn URL explicitly present in the resume, or an empty string."
+      },
+      "github": {
+        "type": "string",
+        "description": "Normalized GitHub URL explicitly present in the resume, or an empty string."
+      },
+      "portfolio_urls": {
+        "type": "array",
+        "description": "Normalized non-LinkedIn, non-GitHub portfolio or personal website URLs explicitly present in the resume.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "skills": {
+        "type": "array",
+        "description": "All explicitly listed skills from the resume as concise strings.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "technical_skills": {
+        "type": "array",
+        "description": "Programming languages, frameworks, libraries, databases, cloud platforms, DevOps tools, AI/ML frameworks, version control, IDEs, APIs, and software tools explicitly present in the resume.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "soft_skills": {
+        "type": "array",
+        "description": "Communication, teamwork, leadership, problem solving, adaptability, critical thinking, collaboration, presentation, project management, and similar interpersonal skills explicitly present in the resume.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "education": {
+        "type": "array",
+        "description": "One string per education record, including degree, institution, graduation year, and grade or CGPA when available.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "experience": {
+        "type": "array",
+        "description": "One string per professional work experience, including company, role, duration, and responsibilities when available.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "projects": {
+        "type": "array",
+        "description": "One string per project, including project name, technologies used, and short description when available.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "certifications": {
+        "type": "array",
+        "description": "All certifications explicitly present in the resume, one string per certification.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "years_of_experience": {
+        "type": "integer",
+        "description": "Total professional experience in whole years as an integer, excluding clearly marked internships unless explicitly specified as professional experience. Return 0 if it cannot be determined."
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "showProjectCreationExperience": false,
+    "targetRuntime": "pythonAgent"
+  },
+  "type": "lowCode",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an autonomous AI Resume Parser Agent for a Recruitment Intelligence System. Your only task is to extract structured candidate information from the complete resume text supplied in resumeText.\n\nCritical output contract:\n- Return exactly one JSON object through the configured output schema.\n- Do not include markdown, explanations, comments, or additional text.\n- Include every configured output field exactly once.\n- Do not add fields not listed in the schema.\n- Extract only information explicitly present in the resume. Never hallucinate, infer, assume, or complete missing details.\n- If a string value is unavailable, return an empty string.\n- If an array value is unavailable, return an empty array.\n- If years_of_experience cannot be determined, return 0.\n\nNormalization rules:\n- Email: lower-case the address, trim whitespace, and remove surrounding punctuation.\n- Phone Number: preserve explicit country or area codes where present; remove labels and excess spaces; do not invent a country code.\n- GitHub URL, LinkedIn URL, and Portfolio URLs: trim punctuation, normalize spacing, add https:// only when the resume explicitly provides a recognizable domain or path without protocol, and keep the explicit URL path.\n- Do not treat email addresses, LinkedIn URLs, or GitHub URLs as portfolio URLs. Put other personal or professional websites in portfolio_urls.\n\nField extraction rules:\n- candidate_name: extract only an explicit candidate name, usually from the resume header or name line. Do not infer it from email addresses or profile URLs.\n- skills: include all explicitly listed skills, including technical and soft skills, as concise strings.\n- technical_skills: include programming languages, frameworks, libraries, databases, cloud platforms, DevOps tools, AI/ML frameworks, version control, IDEs, APIs, and software tools explicitly present.\n- soft_skills: include communication skills, teamwork, leadership, problem solving, adaptability, critical thinking, collaboration, presentation, project management, and similar interpersonal skills explicitly present.\n- education: create one string per education record. Include degree, institution, graduation year, and grade or CGPA if available.\n- experience: create one string per professional work experience. Include company, role, duration, and responsibilities if available. Do not count internships as professional experience unless the resume explicitly presents them as professional experience.\n- projects: create one string per project. Include project name, technologies used, and a short description if available.\n- certifications: create one string per certification.\n- years_of_experience: compute total professional experience as a whole-number integer only from explicit professional experience durations or date ranges. Exclude clearly marked internships unless specified as professional experience. For roles ending in Present or Current, count through the current execution date when available. Round down partial years to the nearest whole integer. If the information is insufficient or ambiguous, return 0.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are an autonomous AI Resume Parser Agent for a Recruitment Intelligence System. Your only task is to extract structured candidate information from the complete resume text supplied in resumeText.\n\nCritical output contract:\n- Return exactly one JSON object through the configured output schema.\n- Do not include markdown, explanations, comments, or additional text.\n- Include every configured output field exactly once.\n- Do not add fields not listed in the schema.\n- Extract only information explicitly present in the resume. Never hallucinate, infer, assume, or complete missing details.\n- If a string value is unavailable, return an empty string.\n- If an array value is unavailable, return an empty array.\n- If years_of_experience cannot be determined, return 0.\n\nNormalization rules:\n- Email: lower-case the address, trim whitespace, and remove surrounding punctuation.\n- Phone Number: preserve explicit country or area codes where present; remove labels and excess spaces; do not invent a country code.\n- GitHub URL, LinkedIn URL, and Portfolio URLs: trim punctuation, normalize spacing, add https:// only when the resume explicitly provides a recognizable domain or path without protocol, and keep the explicit URL path.\n- Do not treat email addresses, LinkedIn URLs, or GitHub URLs as portfolio URLs. Put other personal or professional websites in portfolio_urls.\n\nField extraction rules:\n- candidate_name: extract only an explicit candidate name, usually from the resume header or name line. Do not infer it from email addresses or profile URLs.\n- skills: include all explicitly listed skills, including technical and soft skills, as concise strings.\n- technical_skills: include programming languages, frameworks, libraries, databases, cloud platforms, DevOps tools, AI/ML frameworks, version control, IDEs, APIs, and software tools explicitly present.\n- soft_skills: include communication skills, teamwork, leadership, problem solving, adaptability, critical thinking, collaboration, presentation, project management, and similar interpersonal skills explicitly present.\n- education: create one string per education record. Include degree, institution, graduation year, and grade or CGPA if available.\n- experience: create one string per professional work experience. Include company, role, duration, and responsibilities if available. Do not count internships as professional experience unless the resume explicitly presents them as professional experience.\n- projects: create one string per project. Include project name, technologies used, and a short description if available.\n- certifications: create one string per certification.\n- years_of_experience: compute total professional experience as a whole-number integer only from explicit professional experience durations or date ranges. Exclude clearly marked internships unless specified as professional experience. For roles ending in Present or Current, count through the current execution date when available. Round down partial years to the nearest whole integer. If the information is insufficient or ambiguous, return 0."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Complete resume text:\n{{input.resumeText}}\n\nExtract the candidate information and return exactly one JSON object matching the configured output schema.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Complete resume text:\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.resumeText"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nExtract the candidate information and return exactly one JSON object matching the configured output schema."
+        }
+      ]
+    }
+  ],
+  "projectId": "2b232782-924c-459f-ba71-4b993abdceac"
+}

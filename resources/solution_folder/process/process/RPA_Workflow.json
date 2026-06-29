@@ -1,0 +1,62 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "RPA Workflow",
+    "kind": "process",
+    "type": "process",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "f75cc9e2-8829-42c7-b358-d439db777786",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "RPA Workflow",
+        "kind": "package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "entryPointUniqueId": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": null,
+      "outputArgumentsSchemaV2": null,
+      "type": "Process",
+      "name": "RPA Workflow",
+      "description": null,
+      "package": {
+        "key": "be214c67-e249-4d73-b2e3-7a18eccd7e05"
+      },
+      "packageName": "Solution.process.RPA.Workflow",
+      "packageVersion": null,
+      "entryPointName": null,
+      "inputArguments": null,
+      "jobPriority": "Medium",
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "jobRecording": "Disabled",
+      "targetFrameworkValue": "Portable",
+      "duration": 40,
+      "frequency": 500,
+      "quality": 100,
+      "remoteControlAccess": "None",
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": null,
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "1ecfc828-d78c-441a-a5e1-4c48310357ce"
+  }
+}

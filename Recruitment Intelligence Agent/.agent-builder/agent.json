@@ -1,0 +1,39 @@
+{
+  "id": "",
+  "version": "0.0.0",
+  "name": "",
+  "metadata": {
+    "storageVersion": "0.0.0",
+    "isConversational": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "",
+      "contentTokens": []
+    },
+    {
+      "role": "user",
+      "content": "",
+      "contentTokens": []
+    }
+  ],
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "settings": {
+    "model": "",
+    "maxTokens": 0,
+    "temperature": 0,
+    "engine": "basic-v1",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "resources": [],
+  "features": []
+}

@@ -1,0 +1,77 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "process",
+      "key": "RPA Workflow",
+      "id": "processRPA Workflow",
+      "value": {
+        "name": {
+          "defaultValue": "RPA Workflow",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "RPA Workflow",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Agent",
+      "id": "processAgent",
+      "value": {
+        "name": {
+          "defaultValue": "Agent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Recruitment Intelligence Agent",
+      "id": "processRecruitment Intelligence Agent",
+      "value": {
+        "name": {
+          "defaultValue": "Recruitment Intelligence Agent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Recruitment Intelligence Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Candidate Communication Agent",
+      "id": "processCandidate Communication Agent",
+      "value": {
+        "name": {
+          "defaultValue": "Candidate Communication Agent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Candidate Communication Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    }
+  ]
+}

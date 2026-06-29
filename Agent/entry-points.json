@@ -1,0 +1,124 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "uniqueId": "3929ee6e-a8ec-4b1b-b712-261dddf2bb7c",
+      "type": "agent",
+      "input": {
+        "type": "object",
+        "required": [
+          "resumeText"
+        ],
+        "properties": {
+          "resumeText": {
+            "type": "string",
+            "description": "Complete resume text extracted from a PDF or DOCX document."
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "required": [
+          "candidate_name",
+          "email",
+          "phone",
+          "linkedin",
+          "github",
+          "portfolio_urls",
+          "skills",
+          "technical_skills",
+          "soft_skills",
+          "education",
+          "experience",
+          "projects",
+          "certifications",
+          "years_of_experience"
+        ],
+        "properties": {
+          "candidate_name": {
+            "type": "string",
+            "description": "Candidate name explicitly present in the resume."
+          },
+          "email": {
+            "type": "string",
+            "description": "Normalized email address explicitly present in the resume, or an empty string."
+          },
+          "phone": {
+            "type": "string",
+            "description": "Normalized phone number explicitly present in the resume, or an empty string."
+          },
+          "linkedin": {
+            "type": "string",
+            "description": "Normalized LinkedIn URL explicitly present in the resume, or an empty string."
+          },
+          "github": {
+            "type": "string",
+            "description": "Normalized GitHub URL explicitly present in the resume, or an empty string."
+          },
+          "portfolio_urls": {
+            "type": "array",
+            "description": "Normalized non-LinkedIn, non-GitHub portfolio or personal website URLs explicitly present in the resume.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "skills": {
+            "type": "array",
+            "description": "All explicitly listed skills from the resume as concise strings.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "technical_skills": {
+            "type": "array",
+            "description": "Programming languages, frameworks, libraries, databases, cloud platforms, DevOps tools, AI/ML frameworks, version control, IDEs, APIs, and software tools explicitly present in the resume.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "soft_skills": {
+            "type": "array",
+            "description": "Communication, teamwork, leadership, problem solving, adaptability, critical thinking, collaboration, presentation, project management, and similar interpersonal skills explicitly present in the resume.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "education": {
+            "type": "array",
+            "description": "One string per education record, including degree, institution, graduation year, and grade or CGPA when available.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "experience": {
+            "type": "array",
+            "description": "One string per professional work experience, including company, role, duration, and responsibilities when available.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "projects": {
+            "type": "array",
+            "description": "One string per project, including project name, technologies used, and short description when available.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "certifications": {
+            "type": "array",
+            "description": "All certifications explicitly present in the resume, one string per certification.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "years_of_experience": {
+            "type": "integer",
+            "description": "Total professional experience in whole years as an integer, excluding clearly marked internships unless explicitly specified as professional experience. Return 0 if it cannot be determined."
+          }
+        }
+      }
+    }
+  ]
+}
